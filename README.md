@@ -1,4 +1,4 @@
-# Component Map [![Build Status](https://travis-ci.org/sheerun/component-map.svg?branch=master)](https://travis-ci.org/sheerun/component-map) [![npm](https://img.shields.io/npm/v/npm.svg)]()
+# Component Map [![Build Status](https://travis-ci.org/sheerun/component-map.svg?branch=master)](https://travis-ci.org/sheerun/component-map) [![npm](https://img.shields.io/npm/v/component-map.svg)]()
 
 > Not invasive, performant, and garbage collected storage for React components (and more)
 
