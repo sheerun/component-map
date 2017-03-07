@@ -1,6 +1,6 @@
 # Component Map [![Build Status](https://travis-ci.org/sheerun/component-map.svg?branch=master)](https://travis-ci.org/sheerun/component-map) [![npm](https://img.shields.io/npm/v/npm.svg)]()
 
-> A storage for (not only) React components backed by WeakMap and performant fallback
+> Garbage collected immutable storage for (not only) React components
 
 This module allows for most operations [WeakMap](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/WeakMap) provides, but it's not a 1:1 shim. To make implementation more lightweight it won't accept iterable object as a constructor parameter.
 

@@ -1,7 +1,7 @@
 {
   "name": "component-map",
   "version": "1.0.0",
-  "description": "A storage for (not only) React components backed by WeakMap and performant fallback",
+  "description": "Garbage collected immutable storage for (not only) React components",
   "license": "MIT",
   "author": "Adam Stankiewicz",
   "main": "lib/index.js",
