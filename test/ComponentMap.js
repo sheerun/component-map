@@ -68,17 +68,6 @@ function testImplementation(test) {
         t.is(heapUsed, 0);
       });
     });
-
-    test("keeps memory for keys outside scope", t => {
-      const map = new ComponentMap({ WeakMap });
-
-      return allocatedMemory(function() {
-        map.set(Component, tenmegabyte());
-      }).then(heapUsed => {
-        t.is(map.get(Component).length, 262144);
-        t.is(heapUsed, 10);
-      });
-    });
   }
 }
 
