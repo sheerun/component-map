@@ -70,15 +70,15 @@ function testImplementation(test) {
     });
   }
 
-   test("keeps memory for keys outside scope", t => {
-     const map = new ComponentMap({ WeakMap });
+  test("keeps memory for keys outside scope", t => {
+    const map = new ComponentMap({ WeakMap });
 
-     return allocatedMemory(function() {
-       map.set(Component, tenmegabyte());
-     }).then(heapUsed => {
-       t.is(heapUsed, 10);
-     });
-   });
+    return allocatedMemory(function() {
+      map.set(Component, tenmegabyte());
+    }).then(heapUsed => {
+      t.is(heapUsed, 10);
+    });
+  });
 }
 
 [
