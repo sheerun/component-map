@@ -4,7 +4,7 @@
   "description": "A storage for (not only) React components backed by WeakMap and performant fallback",
   "license": "MIT",
   "author": "Adam Stankiewicz",
-  "main": "./lib/index.js",
+  "main": "lib/index.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/sheerun/component-map.git"
@@ -22,7 +22,7 @@
   ],
   "keywords": [
     "react",
-    "weak-map",
+    "weakmap",
     "components",
     "memoize"
   ],

@@ -1,4 +1,4 @@
-# Component Map [![Build Status](https://travis-ci.org/sheerun/component-map.svg?branch=master)](https://travis-ci.org/sheerun/component-map)
+# Component Map [![Build Status](https://travis-ci.org/sheerun/component-map.svg?branch=master)](https://travis-ci.org/sheerun/component-map) [![npm](https://img.shields.io/npm/v/npm.svg)]()
 
 > A storage for (not only) React components backed by WeakMap and performant fallback
 
