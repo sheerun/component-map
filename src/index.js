@@ -57,7 +57,7 @@ class BucketStore {
   }
 }
 
-export class BucketMap {
+class BucketMap {
   constructor(options = {}) {
     if (!options.getBucketName) {
       throw new TypeError("BucketMap constructor requires getBucketName param");

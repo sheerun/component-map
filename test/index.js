@@ -1,7 +1,7 @@
 import test from "ava";
 import React from "react";
 
-import ComponentMap, { BucketMap } from "../src";
+import ComponentMap from "../src";
 import { tenmegabyte, allocatedMemory } from "./_helpers";
 
 test("is a function", t => {
@@ -114,18 +114,9 @@ if (WeakMap && global.gc) {
   });
 }
 
-test("ComponentMap is subtype of BucketMap", t => {
-  const map = new ComponentMap();
-  t.truthy(map instanceof BucketMap);
-});
-
-test("BucketMap throws if not passed getBucketName", t => {
-  t.throws(() => new BucketMap());
-});
-
-test("BucketMap allows for custom getBucketname", t => {
+test("allows for custom getBucketname", t => {
   const object = { lol: "foo" };
-  const map = new BucketMap({ getBucketName: key => key.lol });
+  const map = new ComponentMap({ getBucketName: key => key.lol });
   map.set(object, "bar");
   t.is(map.get(object), "bar");
 });
