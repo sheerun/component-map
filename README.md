@@ -2,7 +2,17 @@
 
 > A storage for (not only) React components backed by WeakMap and performant fallback
 
-This module allows for most operations [WeakMap](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/WeakMap) provides, but it's not a 1:1 shim to make implementation more lightweight (in particular, it won't accept iterable object as a constructor parameter). On top of that, by default `ComponentMap` it is configured for performant storage of React classes, but can be easily easily customized with `getBucketName` option (see below).
+This module allows for most operations [WeakMap](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/WeakMap) provides, but it's not a 1:1 shim to make implementation more lightweight (in particular, it won't accept iterable object as a constructor parameter).
+
+`ComponentMap` it is preconfigured for performant mapping of React classes, but can be easily easily customized for other objects as well.
+
+Component Map promises following:
+
+- *No mutation whatsoever of provided keys* (in contrast to most other WeakMap shims)
+- Efficient garbage collection of components if provided with proper WeakMap implementation
+- Decent performance for retrieving object if no WeakMap is provided
+
+Unfortunately given first promise, mind it's impossible to prevent memory pollution if no `WeakMap` is provided. For this reason Component Map should be used without proper `WeakMap` option only in short-lived sessions, like development or tests.
 
 ## Usage
 
@@ -10,16 +20,14 @@ Component Map supports subset of WeakMap API
 
 * `new ComponentMap(options: object)` Create a new ComponentMap. Accepts following options:
   * `WeakMap: WeakMap` - an implementation of WeakMap to use, or undefined if to use bucketed implementation
-  * `getBucketName: (object) => string` - it can configure bucketed implementation (see Configuraton section below)
+  * `getBucketName: (object) => string` - it can be used to configure bucket names (see Configuraton section below)
 * `ComponentMap#get(key: object): any` Returns the value that key corresponds to the key or undefined.
 * `ComponentMap#has(key: object): boolean` Tells whether there exists a value with given key
 * `ComponentMap#set(key: object, value: any)` Sets key to given value. The key must be an object.
 * `ComponentMap#delete(key: object): boolean` Removes the value and returns true if there was a value to delete.
 
 
-The `key` option must be an object, and is expected to be a React component.
-
-If you with to store values of other types, please instantiate BucketMap instead (see Bucketed Map section below).
+The `key` option must be an object, by default ComponentMap is optimized to store React components.
 
 ## Example
 
