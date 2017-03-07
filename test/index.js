@@ -1,7 +1,7 @@
 import test from "ava";
 import React from "react";
 
-import ComponentMap, { BucketMap } from "../src/ComponentMap";
+import ComponentMap, { BucketMap } from "../src";
 import { tenmegabyte, allocatedMemory } from "./_helpers";
 
 test("is a function", t => {
