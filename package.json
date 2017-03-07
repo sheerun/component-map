@@ -1,7 +1,7 @@
 {
   "name": "component-map",
   "version": "1.0.0",
-  "description": "Garbage collected immutable storage for (not only) React components",
+  "description": "Not invasive, performant, and garbage collected storage for React components (and more)",
   "license": "MIT",
   "author": "Adam Stankiewicz",
   "main": "lib/index.js",
