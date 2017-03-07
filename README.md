@@ -16,15 +16,15 @@ Unfortunately given first promise, it's not possible to prevent memory pollution
 
 ## Usage
 
-Component Map supports subset of WeakMap API
+Component Map supports subset of WeakMap API.
 
-* `new ComponentMap(options: object)` Create a new ComponentMap. Accepts following options:
-  * `WeakMap: WeakMap` - an implementation of WeakMap to use, or undefined if to use bucketed implementation
-  * `getBucketName: (object) => string` - it can be used to configure bucket names (see Configuraton section below)
-* `ComponentMap#get(key: object): any` Returns the value that key corresponds to the key or undefined.
-* `ComponentMap#has(key: object): boolean` Tells whether there exists a value with given key
-* `ComponentMap#set(key: object, value: any)` Sets key to given value. The key must be an object.
-* `ComponentMap#delete(key: object): boolean` Removes the value and returns true if there was a value to delete.
+* `new ComponentMap(options: object)` with following options:
+  * `WeakMap: WeakMap` - the WeakMap implementation to use, or `undefined`, recommended
+  * `getBucketName: (object) => string` - see Configuraton section below, optional
+* `#get(key: object): any` - returns the value that key corresponds to the key or undefined.
+* `#has(key: object): boolean` - tells whether there exists a value with given key
+* `#set(key: object, value: any)` - sets key to given value. The key must be an object.
+* `#delete(key: object): boolean` - removes the value and returns true if there was a value to delete.
 
 
 The `key` option must be an object, by default ComponentMap is optimized to store React components.
@@ -46,10 +46,7 @@ const meta = components.get(MyComponent).metadata
 If you wish to use objects other than React components as keys, you can use `getBucketName`. It allows for specifying custom bucket names. See how `ComponentMap` is a subclass of `BucketMap`:
 
 ```js
-class MyObject {
-  static type = 'MyObject'
-}
-
+const object = { type: 'MyObject' }
 class myMap = new ComponentMap({ getBucketName: (key => key.type) })
 myMap.set(MyObject, 'something')
 ```
