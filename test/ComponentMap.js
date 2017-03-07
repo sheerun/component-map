@@ -76,7 +76,7 @@ function testImplementation(test) {
     return allocatedMemory(function() {
       map.set(Component, tenmegabyte());
     }).then(heapUsed => {
-      t.is(heapUsed, 10);
+      t.is(heapUsed <= 10, true);
     });
   });
 }
