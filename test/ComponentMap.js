@@ -23,15 +23,31 @@ function testImplementation(test) {
     t.is(map.get(Component), undefined);
   });
 
+  test("#has returns false by default", t => {
+    const map = new ComponentMap({ WeakMap });
+    t.is(map.has(Component), false);
+  });
+
   test("#get returns undefined if bucket name is invalid", t => {
     const map = new ComponentMap({ WeakMap });
     t.is(map.get(InvalidBucketName), undefined);
+  });
+
+  test("#jas returns undefined if bucket name is invalid", t => {
+    const map = new ComponentMap({ WeakMap });
+    t.is(map.has(InvalidBucketName), false);
   });
 
   test("#set and #get allow for saving and retrieving values", t => {
     const map = new ComponentMap({ WeakMap });
     map.set(Component, "bar");
     t.is(map.get(Component), "bar");
+  });
+
+  test("#set and #has allow for saving and knowing whether value exists", t => {
+    const map = new ComponentMap({ WeakMap });
+    map.set(Component, "bar");
+    t.is(map.has(Component), true);
   });
 
   test("#delete allows for deleting values", t => {
@@ -59,6 +75,7 @@ function testImplementation(test) {
       return allocatedMemory(function() {
         map.set(Component, tenmegabyte());
       }).then(heapUsed => {
+        t.is(map.get(Component).length, 262144);
         t.is(heapUsed, 10);
       });
     });
