@@ -2,17 +2,17 @@
 
 > A storage for (not only) React components backed by WeakMap and performant fallback
 
-This module allows for most operations [WeakMap](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/WeakMap) provides, but it's not a 1:1 shim to make implementation more lightweight (in particular, it won't accept iterable object as a constructor parameter).
+This module allows for most operations [WeakMap](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/WeakMap) provides, but it's not a 1:1 shim. To make implementation more lightweight it won't accept iterable object as a constructor parameter.
 
 `ComponentMap` it is preconfigured for performant mapping of React classes, but can be easily easily customized for other objects as well.
 
 Component Map promises following:
 
-- *No mutation whatsoever of provided keys* (in contrast to most other WeakMap shims)
+- **No mutation of provided keys whatsoever** (in contrast to most other WeakMap shims)
 - Efficient garbage collection of components if provided with proper WeakMap implementation
-- Decent performance for retrieving object if no WeakMap is provided
+- Decent retrieval performance if no WeakMap is provided
 
-Unfortunately given first promise, mind it's impossible to prevent memory pollution if no `WeakMap` is provided. For this reason Component Map should be used without proper `WeakMap` option only in short-lived sessions, like development or tests.
+Unfortunately given first promise, it's not possible to prevent memory pollution in case `WeakMap` is provided. For this reason `ComponentMap` can be used without `WeakMap` option only in short-lived sessions, like development or tests.
 
 ## Usage
 
@@ -35,11 +35,8 @@ The `key` option must be an object, by default ComponentMap is optimized to stor
 class MyComponent { render() { return <div>Hello world</div> } }
 
 const components = new ComponentMap({ WeakMap })
-
 components.set(MyComponent, { metadata: 'something' })
-
 // somewhere else
-
 const meta = components.get(MyComponent).metadata
 ```
 
@@ -54,7 +51,6 @@ class MyObject {
 }
 
 class myMap = new ComponentMap({ getBucketName: (key => key.type) })
-
 myMap.set(MyObject, 'something')
 ```
 
