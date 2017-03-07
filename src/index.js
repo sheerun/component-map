@@ -92,7 +92,7 @@ export default class ComponentMap extends BucketMap {
     super(
       Object.assign({}, options, {
         getBucketName: options.getBucketName ||
-          (key => key.displayName || key.name || "[anonymous]")
+          (key => key.displayName || key.name || "Unknown")
       })
     );
   }
