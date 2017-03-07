@@ -1,6 +1,6 @@
 {
   "name": "component-map",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Not invasive, performant, and garbage collected storage for React components (and more)",
   "license": "MIT",
   "author": "Adam Stankiewicz",
