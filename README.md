@@ -2,11 +2,11 @@
 
 > Not invasive, performant, and garbage collected storage for React components (and more)
 
-This module allows for most operations [WeakMap](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/WeakMap) provides, but it's not a 1:1 shim. To make implementation more lightweight it won't accept iterable object as a constructor parameter.
+`ComponentMap` allows for most operations [WeakMap](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/WeakMap) provides, but it's not a 1:1 shim. In particular, to simplify the implementation it doesn't accept iterable object as a constructor parameter.
 
-`ComponentMap` it is preconfigured for performant mapping of React classes, but can be easily easily customized for other objects as well.
+`ComponentMap` it is preconfigured for performant mapping of React classes, but can be easily customized.
 
-Component Map promises following:
+`ComponentMap` promises following:
 
 - **No mutation of provided keys whatsoever** (in contrast to most other WeakMap shims)
 - Efficient garbage collection of components if provided with proper WeakMap implementation
